@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -euo pipefail
+shopt -s inherit_errexit
+
+__dirname="$(CDPATH= cd "$( dirname "${BASH_SOURCE[0]}" )" && cd "$(dirname "$( readlink "${BASH_SOURCE[0]}" )" || printf "." )" && pwd)"
+cd "$__dirname"
+
+docker-compose up --detach
+/c/Users/abradley/AppData/Local/JetBrains/Toolbox/apps/Projector/ch-0/1.0.1/projector.exe http://localhost:8887
